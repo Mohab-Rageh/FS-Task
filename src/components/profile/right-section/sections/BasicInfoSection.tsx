@@ -5,8 +5,7 @@ import { formatDate } from "../../../../helper";
 const BasicInfoSection: React.FC<{ user: PersonData }> = ({ user }) => {
   return (
     <div className=" flex flex-col gap-6">
-      {/* Row 1 */}
-      <div className="flex gap-6">
+      <div className="flex gap-6 flex-wrap">
         <div className="w-[248px]">
           <span className="text-[#737791] text-[12px] leading-[20px]">
             National ID Number
@@ -33,8 +32,7 @@ const BasicInfoSection: React.FC<{ user: PersonData }> = ({ user }) => {
         </div>
       </div>
 
-      {/* Row 2 */}
-      <div className="flex gap-6">
+      <div className="flex gap-6 flex-wrap">
         <div className="w-[248px]">
           <span className="text-[#737791] text-[12px] leading-[20px]">
             First Name
@@ -69,8 +67,7 @@ const BasicInfoSection: React.FC<{ user: PersonData }> = ({ user }) => {
         </div>
       </div>
 
-      {/* Row 2 */}
-      <div className="flex gap-6">
+      <div className="flex gap-6 flex-wrap">
         <div className="w-[248px]">
           <span className="text-[#737791] text-[12px] leading-[20px]">
             الاسم الأول
@@ -105,8 +102,7 @@ const BasicInfoSection: React.FC<{ user: PersonData }> = ({ user }) => {
         </div>
       </div>
 
-      {/* Row 3 */}
-      <div className="flex gap-6">
+      <div className="flex gap-6 flex-wrap">
         <div className="w-[248px]">
           <span className="text-[#737791] text-[12px] leading-[20px]">
             Date of Birth
@@ -142,8 +138,7 @@ const BasicInfoSection: React.FC<{ user: PersonData }> = ({ user }) => {
         </div>
       </div>
 
-      {/* Row 4 */}
-      <div className="flex gap-6">
+      <div className="flex gap-6 flex-wrap">
         <div className="w-[248px]">
           <span className="text-[#737791] text-[12px] leading-[20px]">
             Passport No.
@@ -170,8 +165,7 @@ const BasicInfoSection: React.FC<{ user: PersonData }> = ({ user }) => {
         </div>
       </div>
 
-      {/* Row 5 */}
-      <div className="flex gap-6 ">
+      <div className="flex gap-6 flex-wrap ">
         <div className="w-[248px]">
           <span className="text-[#737791] text-[12px] leading-[20px]">
             Marital Status

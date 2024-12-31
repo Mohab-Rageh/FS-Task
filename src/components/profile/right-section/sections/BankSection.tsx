@@ -1,7 +1,7 @@
 const BankSection = () => {
   return (
     <div className=" flex flex-col gap-6">
-      <div className="flex gap-6">
+      <div className="flex gap-6 flex-wrap">
         <div className="w-[248px]">
           <span className="text-[#737791] text-[12px] leading-[20px]">
             Bank Name

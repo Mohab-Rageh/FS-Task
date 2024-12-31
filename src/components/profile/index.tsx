@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import LeftSection from "./LeftSection";
 import RightSection from "./right-section/RightSection";
+import PersonFormDrawer from "./right-section/UpdateDrawer";
 
 const fakePersonData = {
   firstName: "John",
@@ -41,6 +42,7 @@ const fakePersonData = {
 };
 
 const Profile = () => {
+  const [open, setOpen] = useState(false);
   const [selectedSection, setSelectedSection] = useState(
     "personal-information"
   );
@@ -49,6 +51,7 @@ const Profile = () => {
     const queryParams = new URLSearchParams(window.location.search);
     const section = queryParams.get("section") || "personal-information"; // Default section if not provided
     setSelectedSection(section);
+    document.title = "Profile";
   }, []);
 
   return (
@@ -61,7 +64,21 @@ const Profile = () => {
         title="Senior Product Manager"
       />
 
-      <RightSection selectedSection={selectedSection} user={fakePersonData} />
+      <RightSection
+        toggleDrawer={() => setOpen(!open)}
+        selectedSection={selectedSection}
+        user={fakePersonData}
+      />
+
+      <PersonFormDrawer
+        onSubmit={(data) => {
+          setOpen(!open);
+          console.log(data);
+        }}
+        open={open}
+        toggleDrawer={() => setOpen(!open)}
+        personData={fakePersonData}
+      />
     </main>
   );
 };

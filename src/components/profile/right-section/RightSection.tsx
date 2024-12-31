@@ -11,9 +11,11 @@ import SectionWrapper from "./SectionWrapper";
 const RightSection = ({
   user,
   selectedSection,
+  toggleDrawer,
 }: {
   user: PersonData;
   selectedSection: string;
+  toggleDrawer: () => void;
 }) => {
   return (
     <div className="flex-grow h-full overflow-hidden">
@@ -21,7 +23,7 @@ const RightSection = ({
         {/* Todo:: onEdit Should open the edit drawer */}
         {selectedSection === "personal-information" && (
           <>
-            <SectionWrapper onEdit={() => null} title="Basic Information">
+            <SectionWrapper onEdit={toggleDrawer} title="Basic Information">
               <BasicInfoSection user={user} />
             </SectionWrapper>
 
