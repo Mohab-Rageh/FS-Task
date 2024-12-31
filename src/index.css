@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.left-sidebar {
+  border-color: #e7eaee;
+  padding: 40px 30px;
+}
+
+.top-nav {
+  background-color: #f8f9fa;
+}
+
+.top-nav .right-side {
+  gap: 30px;
+}
+
+.sidebar-item svg {
+  width: 24px;
+  height: 24px;
+}
+
+.sidebar-item {
+  padding: 12px;
+  border-radius: 16px;
+  width: 48px;
+  height: 48px;
+}
+
+.sidebar-item.selected {
+  background-color: #003fad;
+
+  path {
+    stroke: white;
+  }
+}
