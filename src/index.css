@@ -39,3 +39,23 @@ body {
     stroke: white;
   }
 }
+
+/* Custom Scrollbar Styles */
+.custom-scrollbar {
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #cccccc #f0f0f0; /* Thumb and track colors for Firefox */
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px; /* Scrollbar width */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Track color */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #cccccc; /* Thumb color */
+  border-radius: 4px; /* Rounded corners */
+  border: 2px solid #f0f0f0; /* Border for the thumb */
+}

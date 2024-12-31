@@ -12,7 +12,9 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <Header name="John Smith" />
 
         {/* Main Content */}
-        <div className="flex-grow bg-gray-50 p-6">{children}</div>
+        <div className="flex-grow bg-gray-50 p-6 h-[calc(100vh-111px)]">
+          {children}
+        </div>
       </div>
     </div>
   );
