@@ -1,3 +1,4 @@
+import { CircularProgress } from "@mui/material";
 import type { PersonData } from "../../../types";
 import AddressSection from "./sections/AddressSection";
 import BankSection from "./sections/BankSection";
@@ -12,10 +13,12 @@ const RightSection = ({
   user,
   selectedSection,
   toggleDrawer,
+  isLoading,
 }: {
   user?: PersonData;
   selectedSection: string;
   toggleDrawer: () => void;
+  isLoading: boolean;
 }) => {
   return (
     <div className="flex-grow h-full overflow-hidden">
@@ -23,7 +26,8 @@ const RightSection = ({
         {selectedSection === "personal-information" && (
           <>
             <SectionWrapper onEdit={toggleDrawer} title="Basic Information">
-              <BasicInfoSection user={user} />
+              {isLoading && <CircularProgress size={40} />}
+              {!isLoading && <BasicInfoSection user={user} />}
             </SectionWrapper>
 
             <SectionWrapper title="Contact Information">

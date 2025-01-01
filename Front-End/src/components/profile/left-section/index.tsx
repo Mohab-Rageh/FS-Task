@@ -1,7 +1,8 @@
 import { Divider } from "@mui/material";
-import PersonImage from "../../assets/Person.png";
-import CameraImage from "../../assets/camera.svg";
+import PersonImage from "../../../assets/Person.png";
+import CameraImage from "../../../assets/camera.svg";
 import { useLocation, useNavigate } from "react-router-dom";
+import SectionItem from "./SectionItem";
 
 interface LeftSectionProps {
   avatar?: string;
@@ -28,16 +29,6 @@ const LeftSection = ({
     setSelectedSection(newSection);
   };
 
-  const renderSectionItem = (section: string, label: string) => (
-    <li
-      onClick={() => updateSection(section)}
-      className={`cursor-pointer p-4 rounded-lg text-[18px] leading-[27px] text-[#051d49] 
-        ${selectedSection === section ? "bg-[#f4f8fe] text-[#0f6cbd]" : ""}`}
-    >
-      {label}
-    </li>
-  );
-
   return (
     <div className="flex flex-col gap-4 w-[393px] bg-white rounded-[24px] p-6 shadow-lg">
       <div className="p-4 flex flex-col gap-4 ">
@@ -61,8 +52,20 @@ const LeftSection = ({
       <Divider />
       <div className="p-4">
         <ul className="flex flex-col gap-2">
-          {renderSectionItem("personal-information", "Personal Information")}
-          {renderSectionItem("financial-information", "Financial Information")}
+          {
+            <SectionItem
+              label="Personal Information"
+              isSelected={selectedSection === "personal-information"}
+              onClick={() => updateSection("personal-information")}
+            />
+          }
+          {
+            <SectionItem
+              label="Financial Information"
+              isSelected={selectedSection === "financial-information"}
+              onClick={() => updateSection("financial-information")}
+            />
+          }
         </ul>
       </div>
     </div>

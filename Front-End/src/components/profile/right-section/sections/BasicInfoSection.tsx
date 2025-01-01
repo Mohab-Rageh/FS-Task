@@ -14,7 +14,11 @@ const BasicInfoSection: React.FC<{ user?: PersonData }> = ({ user }) => {
         />
         <Description
           label="National ID Expiring Date"
-          value={formatDate((user?.nationalId.expiryDate || "").toString())}
+          value={
+            user?.nationalId.expiryDate
+              ? formatDate(user.nationalId.expiryDate.toString())
+              : ""
+          }
         />
         <Description label="Title" value="Mr." />
       </Row>
