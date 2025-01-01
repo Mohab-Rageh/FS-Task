@@ -1,0 +1,41 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Nationality {
+  countryId: ID!
+  countryName: String!
+}
+
+type NationalId {
+  idNumber: String!
+  expiryDate: String!
+}
+
+type LocalizedName {
+  firstName: String!
+  fatherName: String!
+  grandfatherName: String!
+  familyName: String!
+}
+
+type MaritalStatus {
+  id: String!
+  name: String!
+}
+
+type User {
+  firstName: String!
+  fatherName: String!
+  grandfatherName: String!
+  familyName: String!
+  localizedName: LocalizedName!
+  nationalId: NationalId!
+  nationalities: [Nationality!]!
+  maritalStatus: MaritalStatus!
+  dependants: Float!
+}
+
+type Query {
+  user(userId: Float!): User!
+}
