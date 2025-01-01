@@ -20,7 +20,7 @@ const BasicInfoSection: React.FC<{ user?: PersonData }> = ({ user }) => {
               : ""
           }
         />
-        <Description label="Title" value="Mr." />
+        <Description label="Title" value="" />
       </Row>
 
       <Row>
@@ -48,13 +48,13 @@ const BasicInfoSection: React.FC<{ user?: PersonData }> = ({ user }) => {
 
       <Row>
         <Description label="Date of Birth" value={""} />
-        <Description label="Gender" value="Male" />
-        <Description label="Nationality" value="Egyptian" />
+        <Description label="Gender" value="" />
+        <Description label="Nationality" value="" />
         <Description label="Additional Nationality" value={" - "} />
       </Row>
 
       <Row>
-        <Description label="Passport No." value="A135464" />
+        <Description label="Passport No." value="" />
         <Description label="Passport Issue Date" value={""} />
         <Description label="Passport Expiry Date" value={""} />
       </Row>
