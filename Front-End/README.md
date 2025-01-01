@@ -29,7 +29,7 @@ After cloning the repository, install the required dependencies by running:
 npm install
 ```
 
-### 3. Start the Development Server
+### 3. Create .env file same as .env.example Start the Development Server
 Once the dependencies are installed, you can start the development server with:
 
 ```bash
