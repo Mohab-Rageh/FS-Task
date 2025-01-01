@@ -7,7 +7,7 @@ export class UserResolver {
   constructor(private userService: UserService) {}
 
   @Query(() => User)
-  async user(@Args('userId') userId: number): Promise<User> {
+  async user(@Args('userId') userId: number): Promise<{ user: User }> {
     return this.userService.getUser(userId);
   }
 

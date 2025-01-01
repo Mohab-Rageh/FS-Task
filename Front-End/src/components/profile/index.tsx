@@ -2,47 +2,16 @@ import { useEffect, useState } from "react";
 import LeftSection from "./LeftSection";
 import RightSection from "./right-section/RightSection";
 import PersonFormDrawer from "./right-section/UpdateDrawer";
-
-const fakePersonData = {
-  firstName: "John",
-  fatherName: "Michael",
-  grandfatherName: "Edward",
-  familyName: "Doe",
-  localizedName: {
-    firstName: "جون",
-    fatherName: "مايكل",
-    grandfatherName: "إدوارد",
-    familyName: "دو",
-  },
-  nationalId: {
-    idNumber: "12345678901234",
-    expiryDate: new Date("2025-04-01"), // ISO date
-  },
-  nationalities: [
-    {
-      country: {
-        id: "EG",
-        name: "Egypt",
-      },
-      countryId: 1,
-    },
-    {
-      country: {
-        id: "US",
-        name: "United States",
-      },
-      countryId: 2,
-    },
-  ],
-  maritalStatus: {
-    id: "M",
-    name: "Married",
-  },
-  dependants: 3,
-};
+import { PersonData } from "../../types";
+import { fetchUserData, updateUserData } from "../../api";
+import { useParams } from "react-router-dom";
+import { CircularProgress } from "@mui/material";
 
 const Profile = () => {
+  const { userId } = useParams();
   const [open, setOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [user, setUser] = useState<PersonData | null>(null);
   const [selectedSection, setSelectedSection] = useState(
     "personal-information"
   );
@@ -52,33 +21,53 @@ const Profile = () => {
     const section = queryParams.get("section") || "personal-information"; // Default section if not provided
     setSelectedSection(section);
     document.title = "Profile";
-  }, []);
+
+    const fetchInitialUserData = async () => {
+      setIsLoading(true);
+      if (!userId) return;
+
+      setUser((await fetchUserData(userId)).data.data.user);
+      setIsLoading(false);
+    };
+    fetchInitialUserData();
+  }, [userId]);
 
   return (
     <main className="flex gap-4 h-full">
-      {/* Todo:: Name, title need to be sent after fetching user data from the api */}
+      {/* Todo::  title need to be sent after fetching user data from the api */}
       <LeftSection
         setSelectedSection={setSelectedSection}
         selectedSection={selectedSection}
-        name="John Smith"
+        name={user?.firstName || ""}
         title="Senior Product Manager"
       />
+      {isLoading && <CircularProgress size={40} />}
 
       <RightSection
         toggleDrawer={() => setOpen(!open)}
         selectedSection={selectedSection}
-        user={fakePersonData}
+        user={user || undefined}
       />
+      {user && open && (
+        <>
+          <PersonFormDrawer
+            onSubmit={(data) => {
+              setOpen(!open);
 
-      <PersonFormDrawer
-        onSubmit={(data) => {
-          setOpen(!open);
-          console.log(data);
-        }}
-        open={open}
-        toggleDrawer={() => setOpen(!open)}
-        personData={fakePersonData}
-      />
+              updateUserData(userId || "", data);
+            }}
+            open={open}
+            toggleDrawer={() => setOpen(!open)}
+            personData={user}
+          />
+        </>
+      )}
+
+      {!user && !isLoading && (
+        <div className="flex items-center justify-center w-full h-full text-2xl font-bold text-gray-500">
+          Couldn't fetch user data
+        </div>
+      )}
     </main>
   );
 };

@@ -1,31 +1,31 @@
-type LocalizedName = {
+interface LocalizedName {
   firstName: string;
   fatherName: string;
   grandfatherName: string;
   familyName: string;
-};
+}
 
-type NationalId = {
+interface NationalId {
   idNumber: string;
-  expiryDate: Date; // ISO date string
-};
+  expiryDate: string;
+}
 
-type Country = {
+interface Country {
   id: string;
   name: string;
-};
+}
 
-type Nationality = {
-  country: Country;
+interface Nationality {
+  country?: Country;
   countryId: number;
-};
+}
 
-type MaritalStatus = {
+interface MaritalStatus {
   id: string;
   name: string;
-};
+}
 
-export type PersonData = {
+export interface PersonData {
   firstName: string;
   fatherName: string;
   grandfatherName: string;
@@ -35,4 +35,4 @@ export type PersonData = {
   nationalities: Nationality[];
   maritalStatus: MaritalStatus;
   dependants: number;
-};
+}

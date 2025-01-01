@@ -19,22 +19,87 @@ export class UserService {
       expiryDate: '2024-07-24T22:45:29.864Z',
     },
     nationalities: [
-      { countryId: 1016, countryName: 'Bolivia' },
-      { countryId: 1117, countryName: 'Latvia' },
-      { countryId: 1225, countryName: 'Virgin Islands, U.S.' },
+      {
+        country: {
+          id: '1016',
+          name: 'Bolivia',
+        },
+        countryId: 1016,
+      },
+      {
+        country: {
+          id: '1117',
+          name: 'Latvia',
+        },
+        countryId: 1117,
+      },
+      {
+        country: {
+          id: '1225',
+          name: 'Virgin Islands, U.S.',
+        },
+        countryId: 1225,
+      },
     ],
-    maritalStatus: { id: '27', name: 'Divorced' },
+    maritalStatus: {
+      id: '27',
+      name: 'Divorced',
+    },
     dependants: 60,
   };
 
-  getUser(userId: number): User {
+  getUser(userId: number) {
     console.log({ userId });
 
-    return this.userData;
+    return {
+      user: {
+        firstName: 'Zaria',
+        fatherName: 'Edward',
+        grandfatherName: 'Ernest',
+        familyName: 'Willie',
+        localizedName: {
+          firstName: 'صفوان',
+          fatherName: 'حمدان',
+          grandfatherName: 'هشام',
+          familyName: 'عباس',
+        },
+        nationalId: {
+          idNumber: '1c1f3fde-0581-4afb-8c7e-abacf3bc5875',
+          expiryDate: '2024-07-24T22:45:29.864Z',
+        },
+        nationalities: [
+          {
+            country: {
+              id: '1016',
+              name: 'Bolivia',
+            },
+            countryId: 1016,
+          },
+          {
+            country: {
+              id: '1117',
+              name: 'Latvia',
+            },
+            countryId: 1117,
+          },
+          {
+            country: {
+              id: '1225',
+              name: 'Virgin Islands, U.S.',
+            },
+            countryId: 1225,
+          },
+        ],
+        maritalStatus: {
+          id: '27',
+          name: 'Divorced',
+        },
+        dependants: 60,
+      },
+    };
   }
 
   updateUser(userId: number, input: UserInput): User {
-    console.log({ userId, input });
     Object.assign(this.userData, input);
     return this.userData;
   }

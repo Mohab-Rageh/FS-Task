@@ -13,14 +13,13 @@ const RightSection = ({
   selectedSection,
   toggleDrawer,
 }: {
-  user: PersonData;
+  user?: PersonData;
   selectedSection: string;
   toggleDrawer: () => void;
 }) => {
   return (
     <div className="flex-grow h-full overflow-hidden">
       <ul className="flex flex-col gap-6 pr-2  overflow-y-auto h-full ">
-        {/* Todo:: onEdit Should open the edit drawer */}
         {selectedSection === "personal-information" && (
           <>
             <SectionWrapper onEdit={toggleDrawer} title="Basic Information">
