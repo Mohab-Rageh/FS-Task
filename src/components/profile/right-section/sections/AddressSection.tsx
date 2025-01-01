@@ -1,67 +1,21 @@
+import Description from "./section-components/Description";
+import Row from "./section-components/Row";
+
 const AddressSection = () => {
   return (
     <div className=" flex flex-col gap-6">
-      <div className="flex gap-6 flex-wrap">
-        <div className="w-[248px]">
-          <span className="text-[#737791] text-[12px] leading-[20px]">
-            Country
-          </span>
-          <p className="text-[16px] leading-[24px] font-medium text-[#151d48]">
-            Egypt
-          </p>
-        </div>
-        <div className="w-[248px]">
-          <span className="text-[#737791] text-[12px] leading-[20px]">
-            City
-          </span>
-          <p className="text-[16px] leading-[24px] font-medium text-[#151d48]">
-            Cairo
-          </p>
-        </div>
-        <div className="w-[248px]">
-          <span className="text-[#737791] text-[12px] leading-[20px]">
-            Postal Code
-          </span>
-          <p className="text-[16px] leading-[24px] font-medium text-[#151d48]">
-            11728
-          </p>
-        </div>
-      </div>
+      <Row>
+        <Description label="Country" value="Egypt" />
+        <Description label="City" value="Cairo" />
+        <Description label="Postal Code" value="11728" />
+      </Row>
 
-      <div className="flex gap-6 flex-wrap">
-        <div className="w-[248px]">
-          <span className="text-[#737791] text-[12px] leading-[20px]">
-            Building
-          </span>
-          <p className="text-[16px] leading-[24px] font-medium text-[#151d48]">
-            7
-          </p>
-        </div>
-        <div className="w-[248px]">
-          <span className="text-[#737791] text-[12px] leading-[20px]">
-            Street
-          </span>
-          <p className="text-[16px] leading-[24px] font-medium text-[#151d48]">
-            Street 127
-          </p>
-        </div>
-        <div className="w-[248px]">
-          <span className="text-[#737791] text-[12px] leading-[20px]">
-            Floor No.
-          </span>
-          <p className="text-[16px] leading-[24px] font-medium text-[#151d48]">
-            7
-          </p>
-        </div>
-        <div className="w-[248px]">
-          <span className="text-[#737791] text-[12px] leading-[20px]">
-            Apartment
-          </span>
-          <p className="text-[16px] leading-[24px] font-medium text-[#151d48]">
-            72
-          </p>
-        </div>
-      </div>
+      <Row>
+        <Description label="Building" value="7" />
+        <Description label="Street" value="Street 127" />
+        <Description label="Floor No." value="7" />
+        <Description label="Apartment" value="72" />
+      </Row>
     </div>
   );
 };

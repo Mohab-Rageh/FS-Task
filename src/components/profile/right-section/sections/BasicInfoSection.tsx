@@ -1,188 +1,76 @@
 import React from "react";
 import { type PersonData } from "../../../../types";
 import { formatDate } from "../../../../helper";
+import Row from "./section-components/Row";
+import Description from "./section-components/Description";
 
 const BasicInfoSection: React.FC<{ user: PersonData }> = ({ user }) => {
   return (
     <div className=" flex flex-col gap-6">
-      <div className="flex gap-6 flex-wrap">
-        <div className="w-[248px]">
-          <span className="text-[#737791] text-[12px] leading-[20px]">
-            National ID Number
-          </span>
-          <p className="text-[16px] leading-[24px] font-medium text-[#151d48]">
-            {user.nationalId.idNumber}
-          </p>
-        </div>
-        <div className="w-[248px]">
-          <span className="text-[#737791] text-[12px] leading-[20px]">
-            National ID Expiring Date
-          </span>
-          <p className="text-[16px] leading-[24px] font-medium text-[#151d48]">
-            {formatDate(user.nationalId.expiryDate.toString())}
-          </p>
-        </div>
-        <div className="w-[248px]">
-          <span className="text-[#737791] text-[12px] leading-[20px]">
-            Title
-          </span>
-          <p className="text-[16px] leading-[24px] font-medium text-[#151d48]">
-            {"Mr."}
-          </p>
-        </div>
-      </div>
+      <Row>
+        <Description
+          label="National ID Number"
+          value={user.nationalId.idNumber}
+        />
+        <Description
+          label="National ID Expiring Date"
+          value={formatDate(user.nationalId.expiryDate.toString())}
+        />
+        <Description label="Title" value="Mr." />
+      </Row>
 
-      <div className="flex gap-6 flex-wrap">
-        <div className="w-[248px]">
-          <span className="text-[#737791] text-[12px] leading-[20px]">
-            First Name
-          </span>
-          <p className="text-[16px] leading-[24px] font-medium text-[#151d48]">
-            {user.firstName}
-          </p>
-        </div>
-        <div className="w-[248px]">
-          <span className="text-[#737791] text-[12px] leading-[20px]">
-            Father Name
-          </span>
-          <p className="text-[16px] leading-[24px] font-medium text-[#151d48]">
-            {user.fatherName}
-          </p>
-        </div>
-        <div className="w-[248px]">
-          <span className="text-[#737791] text-[12px] leading-[20px]">
-            Grand Father Name
-          </span>
-          <p className="text-[16px] leading-[24px] font-medium text-[#151d48]">
-            {user.grandfatherName}
-          </p>
-        </div>
-        <div className="w-[248px]">
-          <span className="text-[#737791] text-[12px] leading-[20px]">
-            Family Name
-          </span>
-          <p className="text-[16px] leading-[24px] font-medium text-[#151d48]">
-            {user.familyName}
-          </p>
-        </div>
-      </div>
+      <Row>
+        <Description label="First Name" value={user.firstName} />
+        <Description label="Father Name" value={user.fatherName} />
+        <Description label="Grand Father Name" value={user.grandfatherName} />
+        <Description label="Family Name" value={user.familyName} />
+      </Row>
 
-      <div className="flex gap-6 flex-wrap">
-        <div className="w-[248px]">
-          <span className="text-[#737791] text-[12px] leading-[20px]">
-            الاسم الأول
-          </span>
-          <p className="text-[16px] leading-[24px] font-medium text-[#151d48]">
-            {user.localizedName.firstName}
-          </p>
-        </div>
-        <div className="w-[248px]">
-          <span className="text-[#737791] text-[12px] leading-[20px]">
-            اسم الأب
-          </span>
-          <p className="text-[16px] leading-[24px] font-medium text-[#151d48]">
-            {user.localizedName.fatherName}
-          </p>
-        </div>
-        <div className="w-[248px]">
-          <span className="text-[#737791] text-[12px] leading-[20px]">
-            اسم الجد
-          </span>
-          <p className="text-[16px] leading-[24px] font-medium text-[#151d48]">
-            {user.localizedName.grandfatherName}
-          </p>
-        </div>
-        <div className="w-[248px]">
-          <span className="text-[#737791] text-[12px] leading-[20px]">
-            اللقب / اسم العائلة
-          </span>
-          <p className="text-[16px] leading-[24px] font-medium text-[#151d48]">
-            {user.localizedName.familyName}
-          </p>
-        </div>
-      </div>
+      <Row>
+        <Description label="الاسم الأول" value={user.localizedName.firstName} />
+        <Description label="اسم الأب" value={user.localizedName.fatherName} />
+        <Description
+          label="اسم الجد"
+          value={user.localizedName.grandfatherName}
+        />
+        <Description
+          label="اللقب / اسم العائلة"
+          value={user.localizedName.familyName}
+        />
+      </Row>
 
-      <div className="flex gap-6 flex-wrap">
-        <div className="w-[248px]">
-          <span className="text-[#737791] text-[12px] leading-[20px]">
-            Date of Birth
-          </span>
-          <p className="text-[16px] leading-[24px] font-medium text-[#151d48]">
-            {formatDate(new Date().toString())}
-          </p>
-        </div>
-        <div className="w-[248px]">
-          <span className="text-[#737791] text-[12px] leading-[20px]">
-            Gender
-          </span>
-          <p className="text-[16px] leading-[24px] font-medium text-[#151d48]">
-            {"Male"}
-          </p>
-        </div>
-        <div className="w-[248px]">
-          <span className="text-[#737791] text-[12px] leading-[20px]">
-            Nationality
-          </span>
-          <p className="text-[16px] leading-[24px] font-medium text-[#151d48]">
-            {"Egyptian"}
-          </p>
-        </div>
-        <div className="w-[248px]">
-          <span className="text-[#737791] text-[12px] leading-[20px]">
-            Additional Nationality
-          </span>
-          <p className="text-[16px] leading-[24px] font-medium text-[#151d48]">
-            {user.nationalities.map((item) => item.country.name).toString() ||
-              "-"}
-          </p>
-        </div>
-      </div>
+      <Row>
+        <Description
+          label="Date of Birth"
+          value={formatDate(new Date().toString())}
+        />
+        <Description label="Gender" value="Male" />
+        <Description label="Nationality" value="Egyptian" />
+        <Description
+          label="Additional Nationality"
+          value={
+            user.nationalities.map((item) => item.country.name).toString() ||
+            "-"
+          }
+        />
+      </Row>
 
-      <div className="flex gap-6 flex-wrap">
-        <div className="w-[248px]">
-          <span className="text-[#737791] text-[12px] leading-[20px]">
-            Passport No.
-          </span>
-          <p className="text-[16px] leading-[24px] font-medium text-[#151d48]">
-            {"A135464"}
-          </p>
-        </div>
-        <div className="w-[248px]">
-          <span className="text-[#737791] text-[12px] leading-[20px]">
-            Passport Issue Date
-          </span>
-          <p className="text-[16px] leading-[24px] font-medium text-[#151d48]">
-            {formatDate(new Date().toString())}
-          </p>
-        </div>
-        <div className="w-[248px]">
-          <span className="text-[#737791] text-[12px] leading-[20px]">
-            Passport Expiry Date
-          </span>
-          <p className="text-[16px] leading-[24px] font-medium text-[#151d48]">
-            {formatDate(new Date().toString())}
-          </p>
-        </div>
-      </div>
+      <Row>
+        <Description label="Passport No." value="A135464" />
+        <Description
+          label="Passport Issue Date"
+          value={formatDate(new Date().toString())}
+        />
+        <Description
+          label="Passport Expiry Date"
+          value={formatDate(new Date().toString())}
+        />
+      </Row>
 
-      <div className="flex gap-6 flex-wrap ">
-        <div className="w-[248px]">
-          <span className="text-[#737791] text-[12px] leading-[20px]">
-            Marital Status
-          </span>
-          <p className="text-[16px] leading-[24px] font-medium text-[#151d48]">
-            {user.maritalStatus.name}
-          </p>
-        </div>
-        <div className="w-[248px]">
-          <span className="text-[#737791] text-[12px] leading-[20px]">
-            Dependencies
-          </span>
-          <p className="text-[16px] leading-[24px] font-medium text-[#151d48]">
-            {user.dependants}
-          </p>
-        </div>
-      </div>
+      <Row>
+        <Description label="Marital Status" value={user.maritalStatus.name} />
+        <Description label="Dependencies" value={user.dependants.toString()} />
+      </Row>
     </div>
   );
 };
