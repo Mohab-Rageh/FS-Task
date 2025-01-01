@@ -1,7 +1,7 @@
-import { ObjectType, Field, ID } from '@nestjs/graphql';
+import { ObjectType, Field, ID, InputType } from '@nestjs/graphql';
 
 @ObjectType()
-class Nationality {
+export class Nationality {
   @Field(() => ID)
   countryId: number;
 
@@ -10,7 +10,7 @@ class Nationality {
 }
 
 @ObjectType()
-class NationalId {
+export class NationalId {
   @Field()
   idNumber: string;
 
@@ -19,7 +19,7 @@ class NationalId {
 }
 
 @ObjectType()
-class LocalizedName {
+export class LocalizedName {
   @Field()
   firstName: string;
 
@@ -34,7 +34,7 @@ class LocalizedName {
 }
 
 @ObjectType()
-class MaritalStatus {
+export class MaritalStatus {
   @Field()
   id: string;
 
@@ -70,4 +70,76 @@ export class User {
 
   @Field()
   dependants: number;
+}
+
+@InputType()
+export class NationalityInput {
+  @Field(() => ID, { nullable: true })
+  countryId?: number;
+
+  @Field({ nullable: true })
+  countryName?: string;
+}
+
+@InputType()
+export class NationalIdInput {
+  @Field({ nullable: true })
+  idNumber?: string;
+
+  @Field({ nullable: true })
+  expiryDate?: string;
+}
+
+@InputType()
+export class LocalizedNameInput {
+  @Field({ nullable: true })
+  firstName?: string;
+
+  @Field({ nullable: true })
+  fatherName?: string;
+
+  @Field({ nullable: true })
+  grandfatherName?: string;
+
+  @Field({ nullable: true })
+  familyName?: string;
+}
+
+@InputType()
+export class MaritalStatusInput {
+  @Field({ nullable: true })
+  id?: string;
+
+  @Field({ nullable: true })
+  name?: string;
+}
+
+@InputType()
+export class UserInput {
+  @Field({ nullable: true })
+  firstName?: string;
+
+  @Field({ nullable: true })
+  fatherName?: string;
+
+  @Field({ nullable: true })
+  grandfatherName?: string;
+
+  @Field({ nullable: true })
+  familyName?: string;
+
+  @Field(() => LocalizedNameInput, { nullable: true })
+  localizedName?: LocalizedNameInput;
+
+  @Field(() => NationalIdInput, { nullable: true })
+  nationalId?: NationalIdInput;
+
+  @Field(() => [NationalityInput], { nullable: true })
+  nationalities?: NationalityInput[];
+
+  @Field(() => MaritalStatusInput, { nullable: true })
+  maritalStatus?: MaritalStatusInput;
+
+  @Field({ nullable: true })
+  dependants?: number;
 }

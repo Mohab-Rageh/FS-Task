@@ -39,3 +39,41 @@ type User {
 type Query {
   user(userId: Float!): User!
 }
+
+type Mutation {
+  updateUser(userId: Float!, input: UserInput!): User!
+}
+
+input UserInput {
+  firstName: String
+  fatherName: String
+  grandfatherName: String
+  familyName: String
+  localizedName: LocalizedNameInput
+  nationalId: NationalIdInput
+  nationalities: [NationalityInput!]
+  maritalStatus: MaritalStatusInput
+  dependants: Float
+}
+
+input LocalizedNameInput {
+  firstName: String
+  fatherName: String
+  grandfatherName: String
+  familyName: String
+}
+
+input NationalIdInput {
+  idNumber: String
+  expiryDate: String
+}
+
+input NationalityInput {
+  countryId: ID
+  countryName: String
+}
+
+input MaritalStatusInput {
+  id: String
+  name: String
+}

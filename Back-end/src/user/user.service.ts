@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { User } from './user.schema';
+import { User, UserInput } from './user.schema';
 
 @Injectable()
 export class UserService {
@@ -30,6 +30,12 @@ export class UserService {
   getUser(userId: number): User {
     console.log({ userId });
 
+    return this.userData;
+  }
+
+  updateUser(userId: number, input: UserInput): User {
+    console.log({ userId, input });
+    Object.assign(this.userData, input);
     return this.userData;
   }
 }
